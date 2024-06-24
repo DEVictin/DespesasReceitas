@@ -16,5 +16,9 @@ namespace DespesasReceitas
             ValorReceita = valorReceita;
             DataReceita = dataReceita;
         }
+        override public string ToString()
+        {
+            return string.Format("Receita: {0}\nValor: R$ {1}; Data: {2}", Receita, ValorReceita, DataReceita.ToString("dd/MM/yyyy"));
+        }
     }
 }
