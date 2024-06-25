@@ -14,5 +14,19 @@ namespace DespesasReceitas
         {
             return string.Format("Gasto: {0}\nValor: R$ {1}; Data: {2}", Gasto, ValorDespesa, DataDespesa.ToString("dd/MM/yyyy"));
         }
+                public static double CalcularTotalDespesasNoPeriodo(List<DespesasImportantes> despesas, DateTime dataInicio, DateTime dataFim)
+        {
+            double total = 0;
+
+            foreach (var despesa in despesas)
+            {
+                if (despesa.DataDespesa >= dataInicio && despesa.DataDespesa <= dataFim)
+                {
+                    total += despesa.ValorDespesa;
+                }
+            }
+
+            return total;
+        }
     }
 }
