@@ -20,5 +20,19 @@ namespace DespesasReceitas
         {
             return string.Format("Receita: {0}\nValor: R$ {1}; Data: {2}", Receita, ValorReceita, DataReceita.ToString("dd/MM/yyyy"));
         }
+                public static double CalcularTotalReceitasNoPeriodo(List<Receitas> receitas, DateTime dataInicio, DateTime dataFim)
+        {
+            double total = 0;
+
+            foreach (var receita in receitas)
+            {
+                if (receita.DataReceita >= dataInicio && receita.DataReceita <= dataFim)
+                {
+                    total += receita.ValorReceita;
+                }
+            }
+
+            return total;
+        }
     }
 }
