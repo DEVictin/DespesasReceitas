@@ -28,7 +28,7 @@ class Program
                             DateTime dataDespesa = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
                             Despesas despesa = new DespesasImportantes(gasto, valorDespesa, dataDespesa);
 
-                            using (StreamWriter arquivo = File.AppendText("C:\\Temp\\DespesasImportantes.txt"))
+                            using (StreamWriter arquivo = File.AppendText("DespesasImportantes.txt"))
                             {
                                 string newLine = string.Format("{0};{1};{2}", despesa.Gasto, despesa.ValorDespesa, despesa.DataDespesa);
                                 arquivo.WriteLine(newLine);
@@ -44,7 +44,7 @@ class Program
                             dataDespesa = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
                             despesa = new DespesasSuperfluas(gasto, valorDespesa, dataDespesa);
 
-                            using (StreamWriter arquivo = File.AppendText("C:\\Temp\\DespesasSuperfluas.txt"))
+                            using (StreamWriter arquivo = File.AppendText("DespesasSuperfluas.txt"))
                             {
                                 string newLine = string.Format("{0};{1};{2}", despesa.Gasto, despesa.ValorDespesa, despesa.DataDespesa);
                                 arquivo.WriteLine(newLine);
@@ -63,7 +63,7 @@ class Program
                     DateTime dataReceita = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
                     Receitas newReceita = new Receitas(receita, valorReceita, dataReceita);
 
-                    using (StreamWriter arquivo = File.AppendText("C:\\Temp\\Receitas.txt"))
+                    using (StreamWriter arquivo = File.AppendText("Receitas.txt"))
                     {
                         string newLine = string.Format("{0};{1};{2}", newReceita.Receita, newReceita.ValorReceita, newReceita.DataReceita);
                         arquivo.WriteLine(newLine);
@@ -78,7 +78,7 @@ class Program
                     Console.WriteLine("============================================================");
                     Console.WriteLine("Receitas: ");
                     Console.WriteLine("============================================================");
-                    string[] linhas = File.ReadAllLines("C:\\Temp\\Receitas.txt");
+                    string[] linhas = File.ReadAllLines("Receitas.txt");
                     foreach (string linha in linhas)
                     {
                         string[] dados = linha.Split(';');
@@ -89,7 +89,7 @@ class Program
                     Console.WriteLine("============================================================");
                     Console.WriteLine("Despesas Importantes: ");
                     Console.WriteLine("============================================================");
-                    string[] linhas2 = File.ReadAllLines("C:\\Temp\\DespesasImportantes.txt");
+                    string[] linhas2 = File.ReadAllLines("DespesasImportantes.txt");
                     foreach (string linha in linhas2)
                     {
                         string[] dados = linha.Split(';');
@@ -100,7 +100,7 @@ class Program
                     Console.WriteLine("============================================================");
                     Console.WriteLine("Despesas Superfluas: ");
                     Console.WriteLine("============================================================");
-                    string[] linhas3 = File.ReadAllLines("C:\\Temp\\DespesasSuperfluas.txt");
+                    string[] linhas3 = File.ReadAllLines("DespesasSuperfluas.txt");
                     foreach (string linha in linhas3)
                     {
                         string[] dados = linha.Split(';');
@@ -111,10 +111,10 @@ class Program
                     break;
 
                 case "4":
-                    File.Delete("C:\\Temp\\DespesasImportantes.txt");
-                    File.Create("C:\\Temp\\DespesasImportantes.txt");
-                    File.Delete("C:\\Temp\\DespesasSuperfluas.txt");
-                    File.Create("C:\\Temp\\DespesasSuperfluas.txt");
+                    File.Delete("DespesasImportantes.txt");
+                    File.Create("DespesasImportantes.txt");
+                    File.Delete("DespesasSuperfluas.txt");
+                    File.Create("DespesasSuperfluas.txt");
                     Console.Clear();
                     Console.WriteLine("====================================== Personal Finances ===");
                     Console.WriteLine("============================================================");
@@ -124,8 +124,8 @@ class Program
                     break;
 
                 case "5":
-                    File.Delete("C:\\Temp\\Receitas.txt");
-                    File.Create("C:\\Temp\\Receitas.txt");
+                    File.Delete("Receitas.txt");
+                    File.Create("Receitas.txt");
                     Console.Clear();
                     Console.WriteLine("====================================== Personal Finances ===");
                     Console.WriteLine("============================================================");
